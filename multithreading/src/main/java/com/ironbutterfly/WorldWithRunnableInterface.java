@@ -6,5 +6,7 @@ public class WorldWithRunnableInterface implements Runnable{
         // this method contains the code that runs in a separate thread
         for(; ;)
             System.out.println("From WorldWithRunnableInterface " + Thread.currentThread().getName());
+
+        //
     }
 }
