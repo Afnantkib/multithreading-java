@@ -1,0 +1,29 @@
+package synchronised;
+
+public class MyThread extends Thread{
+
+    Counter counter;
+    MyThread(Counter counter) {
+        this.counter = counter;
+    }
+
+    @Override
+    public void run() {
+            for(int i = 1; i <= 10000; i++)
+                counter.decrement();
+
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Counter counter = new Counter();
+        MyThread t1 = new MyThread(counter);
+        MyThread t2 = new MyThread(counter);
+        t1.start();
+        t2.start();
+
+        t1.join();
+        t2.join();
+
+        System.out.println(counter.getValue());
+    }
+}
