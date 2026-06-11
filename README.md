@@ -22,7 +22,7 @@ A simple reference repository demonstrating core Java multithreading and concurr
 
 ### 2. Thread Controls & Daemon Threads
 *   **Methods**: [MyThread.java](./multithreading/src/main/java/threadmethods/MyThread.java) demonstrates scheduling tools like `yield()`, priorities, and thread interruption.
-*   **Daemon Threads**: Background threads that stop as soon as all user threads finish executing ([DeamonThread.java](./multithreading/src/main/java/threadmethods/DeamonThread.java)).
+*   **Daemon Threads**: Background threads that stop as soon as all user threads finish executing ([DaemonThread.java](./multithreading/src/main/java/threadmethods/DaemonThread.java)).
 
 ### 3. Synchronization & Locks
 *   **Synchronized**: Use method level or block level `synchronized` modifiers to protect shared variables from race conditions ([Counter.java](./multithreading/src/main/java/synchronised/Counter.java)).
