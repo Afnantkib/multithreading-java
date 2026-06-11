@@ -3,22 +3,18 @@ package synchronised.locking;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class FairUnfairExmaple {
+public class FairUnfairExample {
     private final Lock unfairLock = new ReentrantLock();
-
-    private final  Lock fairLock = new ReentrantLock(true);
-
+    private final Lock fairLock = new ReentrantLock(true);
 
     void unfairLockMethod() {
         unfairLock.lock();
         try {
             System.out.println(Thread.currentThread().getName() + " Unfair locking");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             Thread.currentThread().interrupt();
-        }
-        finally {
+        } finally {
             unfairLock.unlock();
         }
     }
@@ -27,31 +23,28 @@ public class FairUnfairExmaple {
         fairLock.lock();
         try {
             System.out.println(Thread.currentThread().getName() + " Fair locking ");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Thread.currentThread().interrupt();
-        }
-        finally {
+        } finally {
             fairLock.unlock();
         }
     }
 
     public static void main(String[] args) {
-        FairUnfairExmaple fairUnfairExmaple = new FairUnfairExmaple();
+        FairUnfairExample fairUnfairExample = new FairUnfairExample();
         Runnable fair = new Runnable() {
             @Override
             public void run() {
-                fairUnfairExmaple.fairLockMethod();
+                fairUnfairExample.fairLockMethod();
             }
         };
 
         Runnable unfair = new Runnable() {
             @Override
             public void run() {
-                fairUnfairExmaple.unfairLockMethod();
+                fairUnfairExample.unfairLockMethod();
             }
         };
-
 
         Thread f1 = new Thread(fair);
         Thread f2 = new Thread(fair);
@@ -61,7 +54,6 @@ public class FairUnfairExmaple {
         Thread uf2 = new Thread(unfair);
         Thread uf3 = new Thread(unfair);
 
-
         f1.start();
         f2.start();
         f3.start();
@@ -69,6 +61,5 @@ public class FairUnfairExmaple {
         uf1.start();
         uf2.start();
         uf3.start();
-
     }
 }

@@ -28,7 +28,7 @@ A simple reference repository demonstrating core Java multithreading and concurr
 *   **Synchronized**: Use method level or block level `synchronized` modifiers to protect shared variables from race conditions ([Counter.java](./multithreading/src/main/java/synchronised/Counter.java)).
 *   **Explicit Locks (`ReentrantLock`)**:
     *   **Timed Lock**: Try to acquire a lock with a timeout to avoid deadlock ([BankAccount.java](./multithreading/src/main/java/synchronised/locking/BankAccount.java)).
-    *   **Fairness**: Order lock acquisition to prevent thread starvation ([FairUnfairExmaple.java](./multithreading/src/main/java/synchronised/locking/FairUnfairExmaple.java)).
+    *   **Fairness**: Order lock acquisition to prevent thread starvation ([FairUnfairExample.java](./multithreading/src/main/java/synchronised/locking/FairUnfairExample.java)).
     *   **Reentrancy**: Allow a thread to re-acquire a lock it already holds ([ReentrantExample.java](./multithreading/src/main/java/synchronised/locking/ReentrantExample.java)).
 
 ---
@@ -55,4 +55,7 @@ mvn exec:java -Dexec.mainClass="synchronised.MyThread"
 
 # ReentrantLock BankAccount
 mvn exec:java -Dexec.mainClass="synchronised.locking.Main"
+
+# Fair/Unfair Locking Demo
+mvn exec:java -Dexec.mainClass="synchronised.locking.FairUnfairExample"
 ```
