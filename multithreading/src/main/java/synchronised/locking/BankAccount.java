@@ -34,6 +34,7 @@ public class BankAccount {
      void withdrawWithLocking(int amount) throws InterruptedException {
          System.out.println(Thread.currentThread().getName() + " attempting to withdraw");
 //         lock.tryLock() => for instant check if lock is available or not
+//         lock.lock(); => locks indefinitely
          if(lock.tryLock(1000, TimeUnit.MILLISECONDS)) {
              System.out.println(Thread.currentThread().getName() + " acquired the lock");
              // if true
